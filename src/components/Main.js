@@ -3,8 +3,8 @@ import React from 'react';
 class Main extends React.Component {
   render() {
     return(
-      <section class="main-content">
-          <div class="wrapper">
+      <section className="main-content">
+          <div className="wrapper">
             <h1>More details about the product</h1>
             <p>
                 Lorem ipsum dolor sit amet consectetur adipisicing elit.
