@@ -2,14 +2,10 @@ import React from 'react';
 
 class Header extends React.Component {
 
-  openMenu() {
-    const menu = document.querySelector('#menu');
-    menu.className = 'open-menu';
-  }
+  state = {isMenuOpen: false}
 
-  closeMenu() {
-    const menu = document.querySelector('#menu');
-    menu.className = 'close-menu';
+  toggleMenu = () => {
+    this.setState({isMenuOpen: !this.state.isMenuOpen})
   }
 
   render() {
@@ -18,14 +14,14 @@ class Header extends React.Component {
         <nav>
             <div className="wrapper">
                 <div className="logo"></div>
-                <ul id="menu">
+                <ul id="menu" className={this.state.isMenuOpen ? 'open-menu' : 'close-menu'}>
                     <li><a href="#">Home</a></li>
                     <li><a href="#">About</a></li>
                     <li><a href="#">Products</a></li>
                     <li><a href="#">Contact</a></li>
-                    <li><div className="close" id="close-button" onClick={this.closeMenu}></div></li>
+                    <li><div className="close" onClick={this.toggleMenu}></div></li>
                 </ul>
-                <div className="menu-button" id="menu-button" onClick={this.openMenu}></div>
+                <div className="menu-button" onClick={this.toggleMenu}></div>
             </div>
         </nav>
       </header>
